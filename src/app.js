@@ -8,6 +8,9 @@ const geocode = require('./utils/geocode')
 
 
 const app = express()
+//this port for env(environment) works to run PORT for heroku or if heroku is not there then default 3000 will work good
+const port = process.env.PORT || 3000
+
 const dir = path.join(__dirname,'../public')
 //the default express code runs always on the ../views directory by default
 //to customise the default value we can store it and change it to views varible
@@ -115,6 +118,6 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
-    console.log('server is up on port 3000')
+app.listen(port, ()=>{
+    console.log('server is up on port '+ port)
 })
